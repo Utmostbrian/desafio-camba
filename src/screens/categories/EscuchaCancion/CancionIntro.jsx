@@ -21,8 +21,9 @@ export default function CancionIntro({ cancion, onDone }) {
     audio.addEventListener('error', stopPlaying)
 
     // The spec calls for a 3-second clip; cap playback at 3s even if the
-    // underlying audio file is longer (e.g. once placeholder clips are
-    // swapped for real songs), whichever comes first with `ended`.
+    // underlying audio file is longer (most clips already are ~3s, but
+    // paica.mp3 is the full song — see canciones.json), whichever comes
+    // first with `ended`.
     const capTimeout = setTimeout(() => {
       audio.pause()
       stopPlaying()
