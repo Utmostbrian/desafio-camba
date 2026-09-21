@@ -1,5 +1,6 @@
 import RoundEndScreen from './components/RoundEndScreen'
 import NoSeDiceCategory from './screens/categories/NoSeDice'
+import TriviaCategory from './screens/categories/Trivia'
 
 // Tasks 9-13 each replace one of these stub entries with the real
 // category screen-sequence component (Intro -> Game -> RoundEnd).
@@ -7,7 +8,7 @@ const CATEGORY_SCREENS = {
   'no-se-dice': NoSeDiceCategory,
   'escucha-la-cancion': null,
   'adivina-la-leyenda': null,
-  trivia: null,
+  trivia: TriviaCategory,
   enchoque: null,
 }
 
