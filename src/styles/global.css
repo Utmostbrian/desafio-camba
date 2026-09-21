@@ -23,8 +23,15 @@ body {
   height: var(--stage-height);
   position: relative;
   transform-origin: center center;
-  background: linear-gradient(160deg, var(--color-bg-dark), var(--color-bg-mid))
-    url('../assets/fondo-sin-hoja.png') center / cover no-repeat;
+  /* fondo-sin-hoja.png already has the dark green gradient + city
+     silhouette baked in — layering our own opaque gradient on top (the
+     first background-image layer paints over the ones after it) hid the
+     artwork completely, which is why it never rendered. */
+  background-color: var(--color-bg-dark);
+  background-image: url('../assets/fondo-sin-hoja.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .category-intro, .category-game {
