@@ -23,5 +23,20 @@ body {
   height: var(--stage-height);
   position: relative;
   transform-origin: center center;
-  background: linear-gradient(160deg, var(--color-bg-dark), var(--color-bg-mid));
+  background: linear-gradient(160deg, var(--color-bg-dark), var(--color-bg-mid))
+    url('../assets/fondo-sin-hoja.png') center / cover no-repeat;
+}
+
+.category-intro, .category-game {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+}
+.category-game__prompt {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 24px;
 }

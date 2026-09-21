@@ -1,12 +1,51 @@
+.torn-card-wrap {
+  position: relative;
+  display: inline-block;
+  max-width: 640px;
+}
+
+.torn-card__mask {
+  position: absolute;
+  top: -86px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  z-index: 2;
+  filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.35));
+}
+
 .torn-card {
-  background: var(--color-card-bg) url('../assets/fondo-hoja-2.png') center / cover no-repeat;
+  position: relative;
+  background: var(--color-card-bg);
   color: var(--color-text-dark);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-card);
-  padding: 40px 48px;
+  padding: 44px 64px;
+  text-align: center;
+  filter: drop-shadow(0 14px 0 rgba(0, 0, 0, 0.85)) drop-shadow(0 18px 24px rgba(0, 0, 0, 0.35));
   clip-path: polygon(
-    2% 4%, 12% 0%, 30% 2%, 50% 0%, 70% 3%, 90% 0%, 100% 5%,
-    98% 25%, 100% 50%, 97% 75%, 100% 96%, 85% 100%, 60% 98%,
-    40% 100%, 20% 97%, 0% 100%, 3% 70%, 0% 45%, 3% 20%
+    1% 8%, 4% 2%, 9% 7%, 14% 1%, 19% 6%, 24% 0%, 30% 5%,
+    36% 1%, 42% 6%, 48% 2%, 54% 7%, 60% 1%, 66% 6%, 72% 0%,
+    78% 5%, 84% 1%, 90% 6%, 95% 2%, 99% 8%,
+    100% 16%, 97% 24%, 100% 32%, 98% 40%, 100% 48%, 97% 56%,
+    100% 64%, 98% 72%, 100% 80%, 97% 88%, 100% 92%,
+    95% 97%, 90% 99%, 84% 95%, 78% 100%, 72% 96%, 66% 99%,
+    60% 95%, 54% 100%, 48% 96%, 42% 99%, 36% 95%, 30% 100%,
+    24% 96%, 19% 99%, 14% 95%, 9% 100%, 4% 97%, 1% 92%,
+    3% 84%, 0% 76%, 3% 68%, 0% 60%, 3% 52%, 0% 44%,
+    3% 36%, 0% 28%, 3% 20%, 0% 14%
   );
+}
+
+.torn-card__hand {
+  position: absolute;
+  top: 50%;
+  width: 78px;
+  transform: translateY(-50%);
+  z-index: 2;
+  filter: drop-shadow(0 6px 8px rgba(0, 0, 0, 0.35));
+}
+.torn-card__hand--left {
+  left: -38px;
+}
+.torn-card__hand--right {
+  right: -38px;
 }

@@ -26,8 +26,8 @@ describe('App', () => {
 
     render(<App />)
 
-    expect(screen.getByText('Desafío Camba!')).toBeInTheDocument()
-    fireEvent.click(screen.getByText('Desafío Camba!'))
+    expect(screen.getByAltText('Desafío Camba!')).toBeInTheDocument()
+    fireEvent.click(screen.getByRole('button', { name: /tocar la pantalla/i }))
 
     expect(screen.getByText('Iniciar')).toBeInTheDocument()
     fireEvent.click(screen.getByText('Iniciar'))
@@ -49,7 +49,7 @@ describe('App - all categories reachable from the wheel', () => {
     window.HTMLMediaElement.prototype.play = vi.fn().mockResolvedValue(undefined)
 
     render(<App />)
-    fireEvent.click(screen.getByText('Desafío Camba!'))
+    fireEvent.click(screen.getByRole('button', { name: /tocar la pantalla/i }))
     fireEvent.click(screen.getByText('Iniciar'))
     act(() => vi.advanceTimersByTime(4000))
 
