@@ -26,4 +26,22 @@ describe('CancionCategory', () => {
     fireEvent.click(screen.getByText('Ir a la ruleta'))
     expect(onRoundComplete).toHaveBeenCalledOnce()
   })
+
+  it('"Repetir 3s" replays the clip from the start', () => {
+    render(<CancionCategory onRoundComplete={() => {}} />)
+    const playSpy = window.HTMLMediaElement.prototype.play
+
+    fireEvent.ended(screen.getByTestId('cancion-audio'))
+    expect(screen.getByText('Repetir 3s')).not.toBeDisabled()
+
+    const initialCalls = playSpy.mock.calls.length
+    fireEvent.click(screen.getByText('Repetir 3s'))
+
+    expect(playSpy.mock.calls.length).toBeGreaterThan(initialCalls)
+    expect(screen.getByText('Repetir 3s')).toBeDisabled()
+    expect(screen.getByText('Continuar')).toBeDisabled()
+
+    fireEvent.ended(screen.getByTestId('cancion-audio'))
+    expect(screen.getByText('Repetir 3s')).not.toBeDisabled()
+  })
 })

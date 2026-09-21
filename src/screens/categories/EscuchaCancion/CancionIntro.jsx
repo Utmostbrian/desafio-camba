@@ -4,34 +4,44 @@ import PillButton from '../../../components/PillButton'
 
 export default function CancionIntro({ cancion, onDone }) {
   const audioRef = useRef(null)
+  const capTimeoutRef = useRef(null)
   const [playing, setPlaying] = useState(false)
 
-  useEffect(() => {
+  function playClip() {
     const audio = audioRef.current
+    clearTimeout(capTimeoutRef.current)
+    audio.currentTime = 0
     setPlaying(true)
-    const stopPlaying = () => setPlaying(false)
     // Playback can fail silently (autoplay policy blocking play(), or the audio
     // file 404ing / failing to load). If we only unstick `playing` on the
     // `ended` event, either of those leaves it stuck `true` forever, and since
-    // "Continuar" is the only control on this screen the round becomes
-    // unfinishable. So we also unstick on the play() rejection and on the
-    // element's `error` event.
-    audio.play().catch(stopPlaying)
-    audio.addEventListener('ended', stopPlaying)
-    audio.addEventListener('error', stopPlaying)
+    // "Continuar"/"Repetir 3s" are the only controls on this screen the round
+    // becomes unfinishable. So we also unstick on the play() rejection and on
+    // the element's `error` event.
+    audio.play().catch(() => setPlaying(false))
 
     // The spec calls for a 3-second clip; cap playback at 3s even if the
     // underlying audio file is longer, whichever comes first with `ended`.
-    const capTimeout = setTimeout(() => {
+    capTimeoutRef.current = setTimeout(() => {
       audio.pause()
-      stopPlaying()
+      setPlaying(false)
     }, 3000)
+  }
+
+  useEffect(() => {
+    const audio = audioRef.current
+    const stopPlaying = () => setPlaying(false)
+    audio.addEventListener('ended', stopPlaying)
+    audio.addEventListener('error', stopPlaying)
+
+    playClip()
 
     return () => {
       audio.removeEventListener('ended', stopPlaying)
       audio.removeEventListener('error', stopPlaying)
-      clearTimeout(capTimeout)
+      clearTimeout(capTimeoutRef.current)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
@@ -42,7 +52,14 @@ export default function CancionIntro({ cancion, onDone }) {
           <span /><span /><span />
         </div>
         <p>No te distraigas camba e miércole! Ni cagando repetimos</p>
-        <p className="cancion-intro__repeat">Repetir 3s</p>
+        <button
+          type="button"
+          className="cancion-intro__repeat"
+          onClick={playClip}
+          disabled={playing}
+        >
+          Repetir 3s
+        </button>
         <audio ref={audioRef} src={`/audio/${cancion.archivo}`} data-testid="cancion-audio" />
         <PillButton label="Continuar" onClick={onDone} disabled={playing} />
       </TornCard>
