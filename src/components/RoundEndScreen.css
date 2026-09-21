@@ -2,14 +2,35 @@
   position: absolute;
   inset: 0;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 32px;
   text-align: center;
+}
+.round-end-screen--plain {
+  flex-direction: column;
+  gap: 32px;
   padding: 0 80px;
 }
-.round-end-screen p {
+.round-end-screen--plain p {
   font-size: 36px;
   font-weight: 700;
+}
+
+.round-end-screen__title {
+  margin: 0 0 8px;
+  font-size: 44px;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  line-height: 1.2;
+}
+.round-end-screen__title-bold {
+  font-size: 56px;
+  font-weight: 800;
+}
+.round-end-screen__subtitle {
+  margin: 0 0 28px;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--color-accent-dark);
 }
