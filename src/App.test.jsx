@@ -3,6 +3,15 @@ import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest'
 import App from './App'
 import * as randomLib from './lib/random'
 import categorias from './data/categorias.json'
+import enchoqueConfig from './data/enchoque.json'
+
+const CATEGORY_EXPECTED_TEXT = {
+  'no-se-dice': 'No se dice... se dice...',
+  trivia: 'Explicación',
+  'adivina-la-leyenda': 'Adivina la Leyenda!',
+  'escucha-la-cancion': '¿Estás escuchando?',
+  enchoque: enchoqueConfig.titulo,
+}
 
 describe('App', () => {
   beforeEach(() => vi.useFakeTimers())
@@ -44,7 +53,31 @@ describe('App - all categories reachable from the wheel', () => {
     fireEvent.click(screen.getByText('Iniciar'))
     act(() => vi.advanceTimersByTime(4000))
 
-    // Each category's first screen renders something other than the generic stub text.
+    // Each category's first screen renders its own, category-specific content
+    // (not just "anything other than the stub text", which a blank screen
+    // would also satisfy).
+    expect(screen.getByText(CATEGORY_EXPECTED_TEXT[categoryId])).toBeInTheDocument()
     expect(screen.queryByText(/pendiente de implementar/)).not.toBeInTheDocument()
+  })
+})
+
+describe('App - responsive scaling', () => {
+  it('scales the stage down to fit a viewport smaller than 1440x1024', () => {
+    const originalWidth = window.innerWidth
+    const originalHeight = window.innerHeight
+    Object.defineProperty(window, 'innerWidth', { configurable: true, value: 720 })
+    Object.defineProperty(window, 'innerHeight', { configurable: true, value: 512 })
+
+    const { container } = render(<App />)
+    const stage = container.querySelector('.stage')
+    const match = stage.style.transform.match(/scale\(([^)]+)\)/)
+
+    expect(match).not.toBeNull()
+    const scaleValue = Number(match[1])
+    expect(scaleValue).toBeLessThan(1)
+    expect(scaleValue).toBeGreaterThan(0)
+
+    Object.defineProperty(window, 'innerWidth', { configurable: true, value: originalWidth })
+    Object.defineProperty(window, 'innerHeight', { configurable: true, value: originalHeight })
   })
 })

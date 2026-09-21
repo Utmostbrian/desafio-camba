@@ -21,6 +21,7 @@ export default function TriviaCategory({ onRoundComplete }) {
   if (step === STEPS.QUESTIONS) {
     return (
       <TriviaQuestion
+        key={questions[index].id ?? index}
         question={questions[index]}
         questionIndex={index}
         total={questions.length}

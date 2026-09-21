@@ -32,6 +32,7 @@ export default function EnchoqueTimer({ onFinished }) {
         <p className="enchoque-timer__clock">{formatTime(secondsLeft)}</p>
         <ProgressTimerBar totalSeconds={config.duracionSegundos} secondsLeft={secondsLeft} />
         {!started && <PillButton label="Empezar" onClick={handleStart} />}
+        {started && !done && <PillButton label="Cancelar" onClick={onFinished} variant="ghost" />}
         {done && <PillButton label="Terminar ronda" onClick={onFinished} variant="ghost" />}
       </TornCard>
     </div>

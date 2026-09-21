@@ -8,11 +8,31 @@ export default function CancionIntro({ cancion, onDone }) {
 
   useEffect(() => {
     const audio = audioRef.current
-    audio.play().catch(() => {}) // autoplay can be blocked; user can still press Continuar
     setPlaying(true)
-    const handleEnded = () => setPlaying(false)
-    audio.addEventListener('ended', handleEnded)
-    return () => audio.removeEventListener('ended', handleEnded)
+    const stopPlaying = () => setPlaying(false)
+    // Playback can fail silently (autoplay policy blocking play(), or the audio
+    // file 404ing / failing to load). If we only unstick `playing` on the
+    // `ended` event, either of those leaves it stuck `true` forever, and since
+    // "Continuar" is the only control on this screen the round becomes
+    // unfinishable. So we also unstick on the play() rejection and on the
+    // element's `error` event.
+    audio.play().catch(stopPlaying)
+    audio.addEventListener('ended', stopPlaying)
+    audio.addEventListener('error', stopPlaying)
+
+    // The spec calls for a 3-second clip; cap playback at 3s even if the
+    // underlying audio file is longer (e.g. once placeholder clips are
+    // swapped for real songs), whichever comes first with `ended`.
+    const capTimeout = setTimeout(() => {
+      audio.pause()
+      stopPlaying()
+    }, 3000)
+
+    return () => {
+      audio.removeEventListener('ended', stopPlaying)
+      audio.removeEventListener('error', stopPlaying)
+      clearTimeout(capTimeout)
+    }
   }, [])
 
   return (
