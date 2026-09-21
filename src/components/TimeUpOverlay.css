@@ -1,20 +1,58 @@
 .time-up-overlay {
   position: absolute;
   inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 24px;
-  background: rgba(10, 20, 12, 0.88);
+  overflow: hidden;
+  background: #16351d;
   color: var(--color-text-light);
   z-index: 10;
 }
-.time-up-overlay__whip {
-  width: 180px;
-  transform: rotate(-15deg);
+
+/* Grainy TV-static texture over a green tint, matching the reference. */
+.time-up-overlay__grain {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 120px 120px;
+  opacity: 0.3;
 }
-.time-up-overlay h2 {
-  font-size: 48px;
-  text-shadow: 0 4px 0 rgba(0, 0, 0, 0.4);
+
+.time-up-overlay__whip {
+  position: absolute;
+  top: 50%;
+  left: 12%;
+  width: 500px;
+  transform: translateY(-50%) rotate(-20deg);
+  filter: drop-shadow(0 12px 16px rgba(0, 0, 0, 0.45));
+}
+
+.time-up-overlay__title {
+  /* White fill with a black OUTLINE only (no background blob) — the
+     33px "border" in the source CSS is a stroke around the letters, not
+     a background box. -webkit-text-stroke draws the stroke centered on
+     the glyph edge; paint-order keeps the stroke from covering the
+     white fill. */
+  position: absolute;
+  left: 50%;
+  top: 42%;
+  width: 620px;
+  transform: translate(-50%, -50%) rotate(6.71deg);
+  margin: 0;
+  color: #fffefe;
+  -webkit-text-stroke: 10px #000;
+  paint-order: stroke fill;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 800;
+  font-size: 68px;
+  line-height: 1.15;
+  text-align: center;
+  z-index: 1;
+}
+
+.time-up-overlay__continue {
+  position: absolute;
+  left: 50%;
+  bottom: 28%;
+  transform: translateX(-50%);
+  z-index: 1;
 }
