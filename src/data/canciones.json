@@ -3,7 +3,6 @@
   { "id": 2, "nombre": "Bienvenido al Paraíso", "artista": "Por definir", "archivo": "bienvenido-al-paraiso.mp3" },
   { "id": 3, "nombre": "Cunumicita", "artista": "Por definir", "archivo": "cunumicita.mp3" },
   { "id": 4, "nombre": "Novia de Santa Cruz", "artista": "Por definir", "archivo": "novia-de-santa-cruz.mp3" },
-  { "id": 5, "nombre": "Paica", "artista": "Por definir", "archivo": "paica.mp3" },
-  { "id": 6, "nombre": "Soberbio", "artista": "Por definir", "archivo": "soberbio.mp3" },
-  { "id": 7, "nombre": "Tierra como mi Tierra", "artista": "Por definir", "archivo": "tierra-como-mi-tierra.mp3" }
+  { "id": 5, "nombre": "Soberbio", "artista": "Por definir", "archivo": "soberbio.mp3" },
+  { "id": 6, "nombre": "Tierra como mi Tierra", "artista": "Por definir", "archivo": "tierra-como-mi-tierra.mp3" }
 ]
