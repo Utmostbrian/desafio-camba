@@ -10,10 +10,10 @@
      top half. The character (below) now sits low enough in the frame
      that a bigger logo no longer overlaps its head. */
   position: absolute;
-  top: 8%;
-  left: 7%;
-  width: 74%;
-  max-width: 1040px;
+  top: 9%;
+  left: 9%;
+  width: 62%;
+  max-width: 860px;
   z-index: 2;
 }
 
@@ -23,9 +23,9 @@
      well below 100% and offset it in from the right edge instead of
      flush against it, matching the reference composition. */
   position: absolute;
-  right: 14%;
-  bottom: 0;
-  width: 56%;
+  right: 17%;
+  bottom: 2%;
+  width: 46%;
   height: auto;
   z-index: 1;
 }
