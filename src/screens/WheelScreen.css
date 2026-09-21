@@ -1,5 +1,11 @@
 .wheel-screen {
+  /* z-index (even 0) is required here alongside `position` to make this
+     element establish its own stacking context — without it, the
+     z-index:-1 decorative characters below escape past this element
+     entirely and end up painted behind .stage's own opaque background,
+     invisible. */
   position: absolute;
+  z-index: 0;
   inset: 0;
   display: flex;
   flex-direction: column;
@@ -8,6 +14,21 @@
   gap: 24px;
   background-size: cover;
   background-position: center;
+  overflow: hidden;
+}
+.wheel-screen__character {
+  position: absolute;
+  top: 36%;
+  width: 30%;
+  opacity: 0.8;
+  z-index: -1;
+  pointer-events: none;
+}
+.wheel-screen__character--left {
+  left: -6%;
+}
+.wheel-screen__character--right {
+  right: -6%;
 }
 .wheel-screen h1 {
   margin: 0;

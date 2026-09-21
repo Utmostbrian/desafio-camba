@@ -3,6 +3,8 @@ import categorias from '../data/categorias.json'
 import { pickRandom, angleForCategory } from '../lib/random'
 import PillButton from '../components/PillButton'
 import fondoRuleta from '../assets/fondo-ruleta.png'
+import personajeEsqueleto from '../assets/wheel-personaje-esqueleto.png'
+import personajeSombrero from '../assets/wheel-personaje-sombrero.png'
 import './WheelScreen.css'
 
 const SPIN_DURATION_MS = 4000
@@ -44,6 +46,8 @@ export default function WheelScreen({ onCategorySelected }) {
 
   return (
     <div className="wheel-screen" style={{ backgroundImage: `url(${fondoRuleta})` }}>
+      <img className="wheel-screen__character wheel-screen__character--left" src={personajeEsqueleto} alt="" aria-hidden="true" />
+      <img className="wheel-screen__character wheel-screen__character--right" src={personajeSombrero} alt="" aria-hidden="true" />
       <h1>¡Girala YA!</h1>
       <div className="wheel-screen__selection">
         <div className="wheel-screen__selection-icon">▼</div>
