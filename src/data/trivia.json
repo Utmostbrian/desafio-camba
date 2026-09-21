@@ -1,0 +1,17 @@
+[
+  { "id": 1, "pregunta": "¿En qué año fue fundada Santa Cruz de la Sierra por Ñuflo de Chaves?", "opciones": ["1559", "1561", "1564", "1523"], "correctaIndex": 1 },
+  { "id": 2, "pregunta": "¿En qué año ocurrió el Grito Libertario de Santa Cruz?", "opciones": ["1809", "1810", "1812", "1709"], "correctaIndex": 1 },
+  { "id": 3, "pregunta": "¿En qué año se proclamó la independencia de Santa Cruz?", "opciones": ["1821", "1825", "1826", "1824"], "correctaIndex": 1 },
+  { "id": 4, "pregunta": "¿En qué año fue creado el departamento de Santa Cruz?", "opciones": ["1825", "1826", "1830", "1608"], "correctaIndex": 1 },
+  { "id": 5, "pregunta": "¿Cuál es la capital del departamento de Santa Cruz?", "opciones": ["Montero", "Santa Cruz de la Sierra", "Camiri", "San Ignacio de Velasco"], "correctaIndex": 1 },
+  { "id": 6, "pregunta": "¿Cuántas provincias tiene actualmente el departamento de Santa Cruz?", "opciones": ["12", "13", "15", "16"], "correctaIndex": 2 },
+  { "id": 7, "pregunta": "¿Cuál de estos ríos es uno de los más importantes del departamento de Santa Cruz?", "opciones": ["Río Piraí", "Río Pilcomayo", "Río Desaguadero", "Río Choqueyapu"], "correctaIndex": 0 },
+  { "id": 8, "pregunta": "¿Qué celebración tradicional cruceña se realiza principalmente en septiembre?", "opciones": ["Carnaval Cruceño", "Día de la Tradición", "Fiesta de San Roque", "Alasitas"], "correctaIndex": 1 },
+  { "id": 9, "pregunta": "¿Cuál de estos platos es tradicional de Santa Cruz?", "opciones": ["Silpancho", "Majadito", "Chairo", "Fricasé"], "correctaIndex": 1 },
+  { "id": 10, "pregunta": "¿Qué bebida tradicional cruceña se prepara a base de maíz?", "opciones": ["Mocochinchi", "Chicha", "Api", "Sucumbé"], "correctaIndex": 1 },
+  { "id": 11, "pregunta": "¿Cuál de estos municipios pertenece al departamento de Santa Cruz?", "opciones": ["Tarija", "Sacaba", "Warnes", "Copacabana"], "correctaIndex": 2 },
+  { "id": 12, "pregunta": "¿Qué animal aparece en el escudo del departamento de Santa Cruz?", "opciones": ["Cóndor", "Jaguar", "León", "Águila"], "correctaIndex": 1 },
+  { "id": 13, "pregunta": "¿Cuál es un ritmo tradicional asociado a la cultura cruceña?", "opciones": ["Taquirari", "Morenada", "Tinku", "Saya"], "correctaIndex": 0 },
+  { "id": 14, "pregunta": "¿Qué parque nacional, famoso por sus formaciones rocosas y su biodiversidad, se encuentra en Santa Cruz?", "opciones": ["Sajama", "Amboró", "Madidi", "Toro Toro"], "correctaIndex": 1 },
+  { "id": 15, "pregunta": "¿Cuál es uno de los símbolos más representativos de Santa Cruz de la Sierra?", "opciones": ["La Puerta del Sol", "El Cristo Redentor", "El Illimani", "La Casa de la Libertad"], "correctaIndex": 1 }
+]

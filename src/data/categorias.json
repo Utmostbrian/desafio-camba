@@ -1,0 +1,7 @@
+[
+  { "id": "no-se-dice", "nombre": "No se dice", "duracionSegundos": 10, "colorSlice": "#7ed321" },
+  { "id": "escucha-la-cancion", "nombre": "Escucha la canción", "duracionSegundos": 3, "colorSlice": "#5ea315" },
+  { "id": "adivina-la-leyenda", "nombre": "Adivina la leyenda", "duracionSegundos": 35, "colorSlice": "#7ed321" },
+  { "id": "trivia", "nombre": "Trivia", "duracionSegundos": 15, "colorSlice": "#5ea315" },
+  { "id": "enchoque", "nombre": "Enchoque", "duracionSegundos": 180, "colorSlice": "#7ed321" }
+]

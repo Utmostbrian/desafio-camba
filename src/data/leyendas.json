@@ -1,0 +1,6 @@
+[
+  { "id": 1, "nombre": "El Guajojo", "imagen": "guajojo.png" },
+  { "id": 2, "nombre": "El Carretón de la Otra Vida", "imagen": "el-carreton-de-la-otra-vida.png" },
+  { "id": 3, "nombre": "El Mojón con Cara", "imagen": "el-mojon-con-cara.png" },
+  { "id": 4, "nombre": "La Curiosa", "imagen": "la-curiosa.png" }
+]

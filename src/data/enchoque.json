@@ -1,0 +1,10 @@
+{
+  "titulo": "¡Esto es un reto de agilidad!",
+  "subtitulo": "Compite contra tu rival... ¡Vamos Cunumi!",
+  "pasos": [
+    "Cada jugador toma su enchoque (pelota y tazo).",
+    "Al arrancar el cronómetro, cuenten en voz alta cuántas veces logran ensartar la pelota.",
+    "Al sonar el tiempo, el que tenga más aciertos gana la ronda."
+  ],
+  "duracionSegundos": 180
+}

@@ -1,0 +1,14 @@
+[
+  { "id": 1, "frase": "No se dice está despeinado, se dice…", "respuesta": "está clinudo" },
+  { "id": 2, "frase": "No se dice estás sucio, se dice…", "respuesta": "estás cuchuquí" },
+  { "id": 3, "frase": "No se dice \"estoy sin plata\", se dice…", "respuesta": "estoy yejca" },
+  { "id": 4, "frase": "No se dice niño, se dice…", "respuesta": "pelau" },
+  { "id": 5, "frase": "No se dice novio/a, se dice…", "respuesta": "cortejo/a" },
+  { "id": 6, "frase": "No se dice tonto, se dice…", "respuesta": "opa/sonso" },
+  { "id": 7, "frase": "No se dice está bonito, se dice…", "respuesta": "está pintudo/a" },
+  { "id": 8, "frase": "No se dice voy de fiesta, se dice…", "respuesta": "voy de buri" },
+  { "id": 9, "frase": "No se dice estoy borracho, se dice…", "respuesta": "estoy yemanga" },
+  { "id": 10, "frase": "No se dice andante, se dice…", "respuesta": "pata e perro" },
+  { "id": 11, "frase": "No se dice no seas molestoso, se dice…", "respuesta": "no seas chinchoso" },
+  { "id": 12, "frase": "No se dice estoy enamorado/a, se dice…", "respuesta": "estoy camote" }
+]
