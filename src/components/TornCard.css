@@ -7,17 +7,22 @@
 }
 
 .torn-card__mask {
+  /* Sits BEHIND the card (z-index 0 vs the card's 1) and dips down further
+     (-50px instead of -70px) so the card's top edge visibly overlaps and
+     covers the lower part of the head, like the character is peeking up
+     from behind the sign rather than floating in front of it. */
   position: absolute;
-  top: -70px;
+  top: -118px;
   left: 50%;
   transform: translateX(-50%);
-  width: 210px;
-  z-index: 2;
+  width: 260px;
+  z-index: 0;
   filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.35));
 }
 
 .torn-card {
   position: relative;
+  z-index: 1;
   background: #f7fef5;
   color: var(--color-text-dark);
   padding: 44px 64px;
