@@ -1,0 +1,20 @@
+.time-up-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  background: rgba(10, 20, 12, 0.88);
+  color: var(--color-text-light);
+  z-index: 10;
+}
+.time-up-overlay__whip {
+  width: 180px;
+  transform: rotate(-15deg);
+}
+.time-up-overlay h2 {
+  font-size: 48px;
+  text-shadow: 0 4px 0 rgba(0, 0, 0, 0.4);
+}
