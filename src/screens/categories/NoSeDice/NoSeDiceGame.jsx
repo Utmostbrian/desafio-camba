@@ -21,7 +21,7 @@ export default function NoSeDiceGame({ onFinished }) {
       <TornCard>
         <p className="category-game__prompt">{entry.frase}</p>
         <ProgressTimerBar totalSeconds={ROUND_SECONDS} secondsLeft={secondsLeft} />
-        {!timeUp && <PillButton label="Ya adivinó" onClick={() => setTimeUp(true)} variant="ghost" />}
+        {!timeUp && <PillButton label="Ya adivinó" onClick={onFinished} variant="ghost" />}
       </TornCard>
       <TimeUpOverlay visible={timeUp} onContinue={onFinished} />
     </div>
