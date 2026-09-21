@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&display=swap');
+@import './tokens.css';
+
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; margin: 0; }
+body {
+  font-family: var(--font-display);
+  background: var(--color-bg-dark);
+  color: var(--color-text-light);
+}
+
+.app-shell {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.stage {
+  width: var(--stage-width);
+  height: var(--stage-height);
+  position: relative;
+  transform-origin: center center;
+  background: linear-gradient(160deg, var(--color-bg-dark), var(--color-bg-mid));
+}

@@ -1,0 +1,15 @@
+:root {
+  --color-bg-dark: #0d2b12;
+  --color-bg-mid: #143a1c;
+  --color-accent: #7ed321;
+  --color-accent-dark: #5ea315;
+  --color-card-bg: #f4fdf4;
+  --color-text-dark: #10321a;
+  --color-text-light: #ffffff;
+  --font-display: 'Baloo 2', 'Poppins', sans-serif;
+  --radius-lg: 28px;
+  --radius-pill: 999px;
+  --shadow-card: 0 12px 24px rgba(0, 0, 0, 0.35);
+  --stage-width: 1440px;
+  --stage-height: 1024px;
+}

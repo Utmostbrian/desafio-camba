@@ -1,0 +1,12 @@
+.torn-card {
+  background: var(--color-card-bg) url('../assets/fondo-hoja-2.png') center / cover no-repeat;
+  color: var(--color-text-dark);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: 40px 48px;
+  clip-path: polygon(
+    2% 4%, 12% 0%, 30% 2%, 50% 0%, 70% 3%, 90% 0%, 100% 5%,
+    98% 25%, 100% 50%, 97% 75%, 100% 96%, 85% 100%, 60% 98%,
+    40% 100%, 20% 97%, 0% 100%, 3% 70%, 0% 45%, 3% 20%
+  );
+}

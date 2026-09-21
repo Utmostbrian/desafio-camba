@@ -1,0 +1,20 @@
+.pill-button {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 22px;
+  border: none;
+  border-radius: var(--radius-pill);
+  padding: 16px 40px;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+.pill-button--primary {
+  background: linear-gradient(180deg, var(--color-accent), var(--color-accent-dark));
+  color: var(--color-text-dark);
+}
+.pill-button--ghost {
+  background: var(--color-card-bg);
+  color: var(--color-accent-dark);
+}
+.pill-button:disabled { opacity: 0.5; cursor: not-allowed; }
+.pill-button:not(:disabled):active { transform: scale(0.96); }
