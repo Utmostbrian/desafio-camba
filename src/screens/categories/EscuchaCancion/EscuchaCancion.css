@@ -1,5 +1,6 @@
 .cancion-intro__bars {
   display: flex;
+  justify-content: center;
   gap: 6px;
   height: 48px;
   align-items: flex-end;
