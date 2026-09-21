@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import TornCard from '../../../components/TornCard'
 import ProgressTimerBar from '../../../components/ProgressTimerBar'
 import TimeUpOverlay from '../../../components/TimeUpOverlay'
+import PillButton from '../../../components/PillButton'
 import { useCountdown } from '../../../hooks/useCountdown'
 
 const QUESTION_SECONDS = 15
@@ -10,6 +11,7 @@ const LONG_OPTION_THRESHOLD = 24 // chars; beyond this, font drops per spec
 
 export default function TriviaQuestion({ question, questionIndex, total, onAnswered }) {
   const [answered, setAnswered] = useState(false)
+  const [selectedIndex, setSelectedIndex] = useState(null)
   const [timeUp, setTimeUp] = useState(false)
   const { secondsLeft, start } = useCountdown(QUESTION_SECONDS, {
     onExpire: () => setTimeUp(true),
@@ -23,7 +25,15 @@ export default function TriviaQuestion({ question, questionIndex, total, onAnswe
 
   function handleSelect(index) {
     if (answered || timeUp) return
+    setSelectedIndex(index)
     setAnswered(true)
+  }
+
+  function optionStateClass(index) {
+    if (!answered) return ''
+    if (index === question.correctaIndex) return 'trivia-question__option--correct'
+    if (index === selectedIndex) return 'trivia-question__option--wrong'
+    return ''
   }
 
   return (
@@ -35,24 +45,27 @@ export default function TriviaQuestion({ question, questionIndex, total, onAnswe
           {question.opciones.map((opt, i) => (
             <button
               key={opt}
-              className="trivia-question__option"
+              className={`trivia-question__option ${optionStateClass(i)}`}
               onClick={() => handleSelect(i)}
               disabled={answered || timeUp}
             >
               <span className="trivia-question__letter">{OPTION_LETTERS[i]}</span>
               {opt}
+              {answered && i === question.correctaIndex && (
+                <span className="trivia-question__check" aria-hidden="true">✓</span>
+              )}
             </button>
           ))}
         </div>
         <ProgressTimerBar totalSeconds={QUESTION_SECONDS} secondsLeft={secondsLeft} />
+        {answered && !timeUp && (
+          <div className="trivia-question__reveal" role="status">
+            <p>Respuesta correcta: {question.opciones[question.correctaIndex]}</p>
+            <PillButton label="Siguiente" onClick={() => onAnswered()} />
+          </div>
+        )}
       </TornCard>
       <TimeUpOverlay visible={timeUp} onContinue={() => onAnswered()} continueLabel="Siguiente" />
-      {answered && !timeUp && (
-        <div className="trivia-question__reveal" role="status">
-          Respuesta correcta: {question.opciones[question.correctaIndex]}
-          <button className="trivia-question__next" onClick={() => onAnswered()}>Siguiente</button>
-        </div>
-      )}
     </div>
   )
 }
