@@ -6,24 +6,24 @@
 }
 
 .splash-screen__logo {
-  /* Sized and positioned to clear the character's head/hat in portada.png
-     (roughly centered around 43-55% width, 35-60% height of the stage) —
-     keep the sign confined to the top-left quadrant so it never overlaps. */
+  /* Matches the reference composition: a large sign spanning most of the
+     top half. The character (below) now sits low enough in the frame
+     that a bigger logo no longer overlaps its head. */
   position: absolute;
-  top: 4%;
-  left: 3%;
-  width: 42%;
-  max-width: 560px;
+  top: 8%;
+  left: 7%;
+  width: 74%;
+  max-width: 1040px;
   z-index: 2;
 }
 
 .splash-screen__art {
   /* portada.png ships on an oversized transparent 1441x1024 canvas (the
      character + flying embers/leaves occupy only part of it) — render it
-     well below 100% and anchor it bottom-right, matching the reference
-     composition instead of stretching it full-bleed. */
+     well below 100% and offset it in from the right edge instead of
+     flush against it, matching the reference composition. */
   position: absolute;
-  right: 0;
+  right: 14%;
   bottom: 0;
   width: 56%;
   height: auto;
