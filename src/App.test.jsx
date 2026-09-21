@@ -11,6 +11,7 @@ const CATEGORY_EXPECTED_TEXT = {
   'adivina-la-leyenda': 'Adivina la Leyenda!',
   'escucha-la-cancion': '¿Estás escuchando?',
   enchoque: enchoqueConfig.titulo,
+  'menciona-3-lugares': 'Menciona 3 lugares con la letra...',
 }
 
 describe('App', () => {

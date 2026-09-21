@@ -10,7 +10,7 @@ describe('content data', () => {
   it('has one categoria entry per known game id', () => {
     const ids = categorias.map((c) => c.id)
     expect(ids).toEqual([
-      'no-se-dice', 'escucha-la-cancion', 'adivina-la-leyenda', 'trivia', 'enchoque',
+      'no-se-dice', 'escucha-la-cancion', 'adivina-la-leyenda', 'trivia', 'enchoque', 'menciona-3-lugares',
     ])
   })
 

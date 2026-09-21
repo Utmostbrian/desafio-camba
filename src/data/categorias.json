@@ -3,5 +3,6 @@
   { "id": "escucha-la-cancion", "nombre": "Escucha la canción", "duracionSegundos": 3, "colorSlice": "#5ea315" },
   { "id": "adivina-la-leyenda", "nombre": "Adivina la leyenda", "duracionSegundos": 35, "colorSlice": "#7ed321" },
   { "id": "trivia", "nombre": "Trivia", "duracionSegundos": 15, "colorSlice": "#5ea315" },
-  { "id": "enchoque", "nombre": "Enchoque", "duracionSegundos": 180, "colorSlice": "#7ed321" }
+  { "id": "enchoque", "nombre": "Enchoque", "duracionSegundos": 180, "colorSlice": "#7ed321" },
+  { "id": "menciona-3-lugares", "nombre": "Menciona 3 lugares", "duracionSegundos": 15, "colorSlice": "#5ea315" }
 ]

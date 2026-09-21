@@ -1,0 +1,10 @@
+.menciona-lugares__letra {
+  font-size: 96px;
+  font-weight: 800;
+  margin: 8px 0;
+  color: var(--color-accent-dark);
+}
+.menciona-lugares__hint {
+  font-style: italic;
+  margin-bottom: 20px;
+}

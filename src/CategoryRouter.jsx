@@ -4,14 +4,16 @@ import TriviaCategory from './screens/categories/Trivia'
 import LeyendaCategory from './screens/categories/AdivinaLeyenda'
 import CancionCategory from './screens/categories/EscuchaCancion'
 import EnchoqueCategory from './screens/categories/Enchoque'
+import MencionaLugaresCategory from './screens/categories/MencionaLugares'
 
-// All 5 categories are real screen-sequence components (Intro -> Game -> RoundEnd).
+// All 6 categories are real screen-sequence components (Intro -> Game -> RoundEnd).
 const CATEGORY_SCREENS = {
   'no-se-dice': NoSeDiceCategory,
   'escucha-la-cancion': CancionCategory,
   'adivina-la-leyenda': LeyendaCategory,
   trivia: TriviaCategory,
   enchoque: EnchoqueCategory,
+  'menciona-3-lugares': MencionaLugaresCategory,
 }
 
 export default function CategoryRouter({ categoryId, onRoundComplete }) {
