@@ -28,7 +28,7 @@ export default function App() {
             }}
           />
         )}
-        {stage !== STAGES.SPLASH && <MusicToggle />}
+        <MusicToggle />
         {stage === STAGES.WHEEL && (
           <WheelScreen
             onCategorySelected={(id) => {

@@ -3,7 +3,7 @@
 // Deliberately not a React hook/context — there's exactly one audio
 // element for the whole app, for its whole lifetime.
 
-const TRACK_URL = '/audio/completas/tierra-como-mi-tierra.mp3'
+const TRACK_URL = '/audio/portada.mp3'
 const VOLUME = 0.25
 
 let audio = null
@@ -14,6 +14,10 @@ function ensureAudio() {
     audio = new Audio(TRACK_URL)
     audio.loop = true
     audio.volume = VOLUME
+    // preload='auto' asks the browser to buffer the whole file up front,
+    // which is what keeps the native `loop` restart gapless — a partially
+    // buffered file can stall for a beat right at the loop point.
+    audio.preload = 'auto'
   }
   return audio
 }
