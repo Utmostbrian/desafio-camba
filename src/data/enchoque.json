@@ -1,10 +1,12 @@
 {
-  "titulo": "¡Esto es un reto de agilidad!",
-  "subtitulo": "Compite contra tu rival... ¡Vamos Cunumi!",
+  "tituloLinea1": "¡Juguemos",
+  "tituloLinea2": "Enchoque!",
+  "subtituloIntro": "A ver que tan pata de perro sos!",
+  "explicacion": "Esto es un reto de agilidad! Compite contra tu rival y vean quien puede meter la pelota primero en el tazo. Vamos Cunumi!",
   "pasos": [
-    "Cada jugador toma su enchoque (pelota y tazo).",
-    "Al arrancar el cronómetro, cuenten en voz alta cuántas veces logran ensartar la pelota.",
-    "Al sonar el tiempo, el que tenga más aciertos gana la ronda."
+    "prepara tu enchoque",
+    "mira directamente a tu contrincante junto con tu enchoque",
+    "tienen 3 minutos para meter la pelota 5 veces"
   ],
   "duracionSegundos": 180
 }

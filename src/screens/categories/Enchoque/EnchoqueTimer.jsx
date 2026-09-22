@@ -24,11 +24,6 @@ export default function EnchoqueTimer({ onFinished }) {
   return (
     <div className="category-game">
       <TornCard>
-        <h2>{config.titulo}</h2>
-        <p>{config.subtitulo}</p>
-        <ol>
-          {config.pasos.map((paso) => <li key={paso}>{paso}</li>)}
-        </ol>
         <p className="enchoque-timer__clock">{formatTime(secondsLeft)}</p>
         <ProgressTimerBar totalSeconds={config.duracionSegundos} secondsLeft={secondsLeft} />
         {!started && <PillButton label="Empezar" onClick={handleStart} />}

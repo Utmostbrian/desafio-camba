@@ -10,7 +10,7 @@ const CATEGORY_EXPECTED_TEXT = {
   trivia: 'Explicación',
   'adivina-la-leyenda': 'Adivina la Leyenda!',
   'escucha-la-cancion': '¿Estás escuchando?',
-  enchoque: enchoqueConfig.titulo,
+  enchoque: enchoqueConfig.tituloLinea2,
   'menciona-3-lugares': 'Menciona 3 lugares con la letra...',
 }
 

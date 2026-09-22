@@ -6,9 +6,16 @@ describe('EnchoqueCategory', () => {
   beforeEach(() => vi.useFakeTimers())
   afterEach(() => vi.useRealTimers())
 
-  it('shows a 3:00 clock, counts down after Empezar, and reaches round end', () => {
+  it('goes intro -> instructions -> timer (3:00, counts down) -> round end', () => {
     const onRoundComplete = vi.fn()
     render(<EnchoqueCategory onRoundComplete={onRoundComplete} />)
+
+    expect(screen.getByText('Enchoque!')).toBeInTheDocument()
+    fireEvent.click(screen.getByText('¡Inicia!'))
+
+    expect(screen.getByText('Explicación')).toBeInTheDocument()
+    expect(screen.getByText('Instrucciones')).toBeInTheDocument()
+    fireEvent.click(screen.getByText('¡Inicia!'))
 
     expect(screen.getByText('3:00')).toBeInTheDocument()
     fireEvent.click(screen.getByText('Empezar'))
