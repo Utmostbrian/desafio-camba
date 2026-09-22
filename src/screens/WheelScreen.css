@@ -18,17 +18,19 @@
 }
 .wheel-screen__character {
   position: absolute;
-  top: 36%;
-  width: 30%;
+  top: 30%;
+  width: 40%;
   opacity: 0.8;
   z-index: -1;
   pointer-events: none;
 }
 .wheel-screen__character--left {
-  left: -6%;
+  left: -10%;
 }
 .wheel-screen__character--right {
-  right: -6%;
+  right: -10%;
+  top: 35%;
+  width: 44%;
 }
 .wheel-screen h1 {
   margin: 0;

@@ -18,7 +18,7 @@ export default function MencionaLugaresGame({ onFinished }) {
 
   return (
     <div className="category-game">
-      <TornCard>
+      <TornCard showDecorations={false}>
         <p className="category-game__prompt">Menciona 3 lugares con la letra:</p>
         <p className="menciona-lugares__letra">{letra}</p>
         <p className="menciona-lugares__hint">Ahorita sacan la labia puej</p>

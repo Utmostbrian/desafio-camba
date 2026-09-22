@@ -23,13 +23,19 @@ export default function EnchoqueTimer({ onFinished }) {
 
   return (
     <div className="category-game">
-      <TornCard>
-        <p className="enchoque-timer__clock">{formatTime(secondsLeft)}</p>
+      <div className="enchoque-timer__stack">
+        <TornCard>
+          <h2 className="category-title">
+            ¡Juguemos
+            <span className="category-title__highlight">Enchoque!</span>
+          </h2>
+          <p className="enchoque-timer__clock">{formatTime(secondsLeft)}</p>
+          {!started && <PillButton label="Empezar" onClick={handleStart} />}
+          {started && !done && <PillButton label="Cancelar" onClick={onFinished} variant="ghost" />}
+          {done && <PillButton label="Terminar ronda" onClick={onFinished} variant="ghost" />}
+        </TornCard>
         <ProgressTimerBar totalSeconds={config.duracionSegundos} secondsLeft={secondsLeft} />
-        {!started && <PillButton label="Empezar" onClick={handleStart} />}
-        {started && !done && <PillButton label="Cancelar" onClick={onFinished} variant="ghost" />}
-        {done && <PillButton label="Terminar ronda" onClick={onFinished} variant="ghost" />}
-      </TornCard>
+      </div>
     </div>
   )
 }
