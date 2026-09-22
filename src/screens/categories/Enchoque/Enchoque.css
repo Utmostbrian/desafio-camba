@@ -3,19 +3,6 @@
   font-weight: 800;
   margin: 16px 0;
 }
-.enchoque-intro__title {
-  font-weight: 500;
-  font-size: 28px;
-  margin: 0 0 8px;
-}
-.enchoque-intro__title-bold {
-  font-weight: 800;
-  font-size: 40px;
-}
-.enchoque-intro__subtitle {
-  font-style: italic;
-  margin-bottom: 20px;
-}
 .enchoque-instructions__tiempo-label {
   margin: 20px 0 0;
   font-style: italic;

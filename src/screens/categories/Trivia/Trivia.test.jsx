@@ -10,6 +10,8 @@ describe('TriviaCategory', () => {
     const onRoundComplete = vi.fn()
     render(<TriviaCategory onRoundComplete={onRoundComplete} />)
 
+    expect(screen.getByText('Cultura general!')).toBeInTheDocument()
+    fireEvent.click(screen.getByText('¡Inicia!'))
     fireEvent.click(screen.getByText('¡Inicia!'))
     expect(screen.getByText('Pregunta 1 de 5')).toBeInTheDocument()
 
@@ -39,6 +41,7 @@ describe('TriviaCategory', () => {
 
   it('shows the time-up overlay when the 15s countdown expires', () => {
     render(<TriviaCategory onRoundComplete={() => {}} />)
+    fireEvent.click(screen.getByText('¡Inicia!'))
     fireEvent.click(screen.getByText('¡Inicia!'))
     act(() => vi.advanceTimersByTime(15000))
     expect(screen.getByText('¡Se acabó el Tiempo!')).toBeInTheDocument()

@@ -13,6 +13,9 @@ describe('CancionCategory', () => {
     const onRoundComplete = vi.fn()
     render(<CancionCategory onRoundComplete={onRoundComplete} />)
 
+    expect(screen.getByText('continúa la canción')).toBeInTheDocument()
+    fireEvent.click(screen.getByText('¡Inicia!'))
+
     expect(screen.getByTestId('cancion-audio')).toBeInTheDocument()
     // Simulate the clip ending so "Continuar" becomes enabled.
     fireEvent.ended(screen.getByTestId('cancion-audio'))
@@ -29,6 +32,7 @@ describe('CancionCategory', () => {
 
   it('"Repetir 3s" replays the clip from the start', () => {
     render(<CancionCategory onRoundComplete={() => {}} />)
+    fireEvent.click(screen.getByText('¡Inicia!'))
     const playSpy = window.HTMLMediaElement.prototype.play
 
     fireEvent.ended(screen.getByTestId('cancion-audio'))

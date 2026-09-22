@@ -10,7 +10,7 @@ describe('MencionaLugaresCategory', () => {
     const onRoundComplete = vi.fn()
     render(<MencionaLugaresCategory onRoundComplete={onRoundComplete} />)
 
-    expect(screen.getByText('Menciona 3 lugares con la letra...')).toBeInTheDocument()
+    expect(screen.getByText('lugares con la letra...')).toBeInTheDocument()
     fireEvent.click(screen.getByText('¡Inicia!'))
 
     const letra = screen.getByText(/^[A-ZÑ]$/)

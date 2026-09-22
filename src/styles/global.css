@@ -48,3 +48,23 @@ body {
   font-weight: 700;
   margin-bottom: 24px;
 }
+
+/* Shared two-line title style for every category's title screen: a
+   lighter first line, then a bold, bigger second line — matches the
+   "¡Juguemos / Enchoque!" / "¡Mioj! / Facilingo" pattern across the
+   whole app. */
+.category-title {
+  margin: 0 0 8px;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 1.15;
+}
+.category-title__highlight {
+  display: block;
+  font-weight: 800;
+  font-size: 40px;
+}
+.category-title__subtitle {
+  font-style: italic;
+  margin-bottom: 20px;
+}

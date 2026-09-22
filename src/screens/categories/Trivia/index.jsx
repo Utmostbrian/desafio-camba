@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import TriviaTitle from './TriviaTitle'
 import TriviaInstructions from './TriviaInstructions'
 import TriviaQuestion from './TriviaQuestion'
 import RoundEndScreen from '../../../components/RoundEndScreen'
@@ -7,12 +8,16 @@ import bank from '../../../data/trivia.json'
 import './Trivia.css'
 
 const QUESTIONS_PER_ROUND = 5
-const STEPS = { INSTRUCTIONS: 'instructions', QUESTIONS: 'questions', END: 'end' }
+const STEPS = { TITLE: 'title', INSTRUCTIONS: 'instructions', QUESTIONS: 'questions', END: 'end' }
 
 export default function TriviaCategory({ onRoundComplete }) {
-  const [step, setStep] = useState(STEPS.INSTRUCTIONS)
+  const [step, setStep] = useState(STEPS.TITLE)
   const [questions] = useState(() => pickRandomN(bank, QUESTIONS_PER_ROUND))
   const [index, setIndex] = useState(0)
+
+  if (step === STEPS.TITLE) {
+    return <TriviaTitle onStart={() => setStep(STEPS.INSTRUCTIONS)} />
+  }
 
   if (step === STEPS.INSTRUCTIONS) {
     return <TriviaInstructions onStart={() => setStep(STEPS.QUESTIONS)} />

@@ -5,12 +5,10 @@ export default function LeyendaInstructions({ onStart }) {
   return (
     <div className="category-intro">
       <TornCard>
-        <h2>Adivina la Leyenda!</h2>
-        <p>La típicas de las típicas</p>
-      </TornCard>
-      <TornCard>
         <h3>Explicación</h3>
         <p>Un jugador se da vuelta. El otro ve el dibujo de la leyenda y debe hacer mímica sin hablar.</p>
+      </TornCard>
+      <TornCard>
         <h3>Instrucciones</h3>
         <ol>
           <li>Piedra, papel o tijera decide quién adivina y quién mimica.</li>

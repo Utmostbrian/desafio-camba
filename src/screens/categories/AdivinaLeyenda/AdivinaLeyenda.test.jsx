@@ -10,6 +10,8 @@ describe('LeyendaCategory', () => {
     const onRoundComplete = vi.fn()
     render(<LeyendaCategory onRoundComplete={onRoundComplete} />)
 
+    expect(screen.getByText('Leyenda!')).toBeInTheDocument()
+    fireEvent.click(screen.getByText('¡Inicia!'))
     fireEvent.click(screen.getByText('¡Inicia!'))
     const img = screen.getByRole('img')
     expect(img.getAttribute('src')).toBeTruthy()

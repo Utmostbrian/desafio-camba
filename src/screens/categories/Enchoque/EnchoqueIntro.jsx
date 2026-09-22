@@ -6,12 +6,11 @@ export default function EnchoqueIntro({ onStart }) {
   return (
     <div className="category-intro">
       <TornCard>
-        <h2 className="enchoque-intro__title">
+        <h2 className="category-title">
           {config.tituloLinea1}
-          <br />
-          <span className="enchoque-intro__title-bold">{config.tituloLinea2}</span>
+          <span className="category-title__highlight">{config.tituloLinea2}</span>
         </h2>
-        <p className="enchoque-intro__subtitle">{config.subtituloIntro}</p>
+        <p className="category-title__subtitle">{config.subtituloIntro}</p>
         <PillButton label="¡Inicia!" onClick={onStart} />
       </TornCard>
     </div>

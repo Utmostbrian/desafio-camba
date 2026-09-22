@@ -10,7 +10,7 @@ describe('NoSeDiceCategory', () => {
     const onRoundComplete = vi.fn()
     render(<NoSeDiceCategory onRoundComplete={onRoundComplete} />)
 
-    expect(screen.getByText('No se dice... se dice...')).toBeInTheDocument()
+    expect(screen.getByText('se dice...')).toBeInTheDocument()
     fireEvent.click(screen.getByText('¡Inicia!'))
 
     act(() => vi.advanceTimersByTime(10000))

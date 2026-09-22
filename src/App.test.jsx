@@ -6,12 +6,12 @@ import categorias from './data/categorias.json'
 import enchoqueConfig from './data/enchoque.json'
 
 const CATEGORY_EXPECTED_TEXT = {
-  'no-se-dice': 'No se dice... se dice...',
-  trivia: 'Explicación',
-  'adivina-la-leyenda': 'Adivina la Leyenda!',
-  'escucha-la-cancion': '¿Estás escuchando?',
+  'no-se-dice': 'se dice...',
+  trivia: 'Cultura general!',
+  'adivina-la-leyenda': 'Leyenda!',
+  'escucha-la-cancion': 'continúa la canción',
   enchoque: enchoqueConfig.tituloLinea2,
-  'menciona-3-lugares': 'Menciona 3 lugares con la letra...',
+  'menciona-3-lugares': 'lugares con la letra...',
 }
 
 describe('App', () => {
