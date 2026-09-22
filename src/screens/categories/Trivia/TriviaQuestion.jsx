@@ -13,6 +13,7 @@ export default function TriviaQuestion({ question, questionIndex, total, onAnswe
   const [answered, setAnswered] = useState(false)
   const [selectedIndex, setSelectedIndex] = useState(null)
   const [timeUp, setTimeUp] = useState(false)
+  const [showTimeUpReveal, setShowTimeUpReveal] = useState(false)
   const { secondsLeft, start } = useCountdown(QUESTION_SECONDS, {
     onExpire: () => setTimeUp(true),
   })
@@ -34,6 +35,26 @@ export default function TriviaQuestion({ question, questionIndex, total, onAnswe
     if (index === question.correctaIndex) return 'trivia-question__option--correct'
     if (index === selectedIndex) return 'trivia-question__option--wrong'
     return ''
+  }
+
+  // When the clock runs out, the black "¡Se acabó el Tiempo!" overlay shows
+  // first (same as every other category); dismissing it here reveals the
+  // correct answer as its own screen, matching the real design, instead of
+  // jumping straight to the next question.
+  if (showTimeUpReveal) {
+    return (
+      <div className="category-game">
+        <TornCard>
+          <p className="category-game__prompt">{question.pregunta}</p>
+          <div className="trivia-question__correct-pill">
+            <span className="trivia-question__letter">{OPTION_LETTERS[question.correctaIndex]}</span>
+            {question.opciones[question.correctaIndex]}
+          </div>
+          <p className="trivia-question__facilingo">Facilingo verdad?</p>
+          <PillButton label="Continuar" onClick={() => onAnswered()} />
+        </TornCard>
+      </div>
+    )
   }
 
   return (
@@ -65,7 +86,11 @@ export default function TriviaQuestion({ question, questionIndex, total, onAnswe
           </div>
         )}
       </TornCard>
-      <TimeUpOverlay visible={timeUp} onContinue={() => onAnswered()} continueLabel="Siguiente" />
+      <TimeUpOverlay
+        visible={timeUp}
+        onContinue={() => setShowTimeUpReveal(true)}
+        continueLabel="Siguiente"
+      />
     </div>
   )
 }

@@ -62,12 +62,20 @@ export default function WheelScreen({ onCategorySelected }) {
       >
         <div className="wheel-screen__hub">{spinning ? 'Girando…' : 'GIRAR'}</div>
       </div>
+      <p className="wheel-screen__ready-hint">
+        ¿Estas listo para jugar?
+        <br />
+        Apreta &ldquo;Iniciar&rdquo;
+      </p>
       <PillButton
         className="wheel-screen__start"
         label="Iniciar"
         onClick={handleSpin}
         disabled={spinning}
       />
+      <button type="button" className="wheel-screen__respin" onClick={handleSpin} disabled={spinning}>
+        volver a girar
+      </button>
     </div>
   )
 }

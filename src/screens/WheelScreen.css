@@ -11,7 +11,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 24px;
+  gap: 14px;
   background-size: cover;
   background-position: center;
   overflow: hidden;
@@ -44,8 +44,29 @@
   transition-property: transform;
   transition-timing-function: cubic-bezier(0.17, 0.67, 0.12, 0.99);
 }
+.wheel-screen__ready-hint {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.3;
+  text-align: center;
+}
 .wheel-screen__start {
-  margin-top: 8px;
+  margin-top: -2px;
+}
+.wheel-screen__respin {
+  margin-top: -6px;
+  background: none;
+  border: none;
+  color: var(--color-text-light);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 14px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.wheel-screen__respin:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 .wheel-screen__selection {
   display: flex;
