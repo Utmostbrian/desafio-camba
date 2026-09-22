@@ -1,7 +1,3 @@
 /* .category-intro / .category-game / .category-game__prompt now live in
    src/styles/global.css since all 5 category folders use them, not just
    No se dice. */
-.no-se-dice__reveal-hint {
-  font-style: italic;
-  margin-bottom: 20px;
-}

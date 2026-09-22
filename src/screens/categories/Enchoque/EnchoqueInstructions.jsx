@@ -11,11 +11,11 @@ function formatTime(totalSeconds) {
 export default function EnchoqueInstructions({ onStart }) {
   return (
     <div className="category-intro">
-      <TornCard showDecorations={false}>
+      <TornCard showDecorations={false} frame="suave">
         <h3>Explicación</h3>
         <p>{config.explicacion}</p>
       </TornCard>
-      <TornCard showDecorations={false}>
+      <TornCard showDecorations={false} frame="suave">
         <h3>Instrucciones</h3>
         <ol>
           {config.pasos.map((paso) => <li key={paso}>{paso}</li>)}

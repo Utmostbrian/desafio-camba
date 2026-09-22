@@ -1,8 +1,8 @@
 [
-  { "id": 1, "nombre": "Mi viejo Santa Cruz", "artista": "Por definir", "archivo": "mi-viejo-santa-cruz.mp3" },
-  { "id": 2, "nombre": "Bienvenido al Paraíso", "artista": "Por definir", "archivo": "bienvenido-al-paraiso.mp3" },
-  { "id": 3, "nombre": "Cunumicita", "artista": "Por definir", "archivo": "cunumicita.mp3" },
-  { "id": 4, "nombre": "Novia de Santa Cruz", "artista": "Por definir", "archivo": "novia-de-santa-cruz.mp3" },
-  { "id": 5, "nombre": "Soberbio", "artista": "Por definir", "archivo": "soberbio.mp3" },
-  { "id": 6, "nombre": "Tierra como mi Tierra", "artista": "Por definir", "archivo": "tierra-como-mi-tierra.mp3" }
+  { "id": 1, "nombre": "Mi viejo Santa Cruz", "artista": "Por definir", "archivo": "mi-viejo-santa-cruz.mp3", "archivoCompleto": "completas/mi-viejo-santa-cruz.mp3" },
+  { "id": 2, "nombre": "Bienvenido al Paraíso", "artista": "Por definir", "archivo": "bienvenido-al-paraiso.mp3", "archivoCompleto": "completas/bienvenido-al-paraiso.m4a" },
+  { "id": 3, "nombre": "Cunumicita", "artista": "Por definir", "archivo": "cunumicita.mp3", "archivoCompleto": "completas/cunumicita.mp3" },
+  { "id": 4, "nombre": "Novia de Santa Cruz", "artista": "Por definir", "archivo": "novia-de-santa-cruz.mp3", "archivoCompleto": "completas/novia-de-santa-cruz.mp3" },
+  { "id": 5, "nombre": "Soberbio", "artista": "Por definir", "archivo": "soberbio.mp3", "archivoCompleto": "completas/soberbio.mp3" },
+  { "id": 6, "nombre": "Tierra como mi Tierra", "artista": "Por definir", "archivo": "tierra-como-mi-tierra.mp3", "archivoCompleto": "completas/tierra-como-mi-tierra.mp3" }
 ]

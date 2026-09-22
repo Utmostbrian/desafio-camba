@@ -4,7 +4,7 @@ import PillButton from '../../../components/PillButton'
 export default function TriviaInstructions({ onStart }) {
   return (
     <div className="category-intro">
-      <TornCard showDecorations={false}>
+      <TornCard showDecorations={false} frame="suave">
         <h3>Explicación</h3>
         <p>
           En está trivia se realizaran diferentes tipos de preguntas de cultura general con
@@ -12,7 +12,7 @@ export default function TriviaInstructions({ onStart }) {
           mayor puntaje gana.
         </p>
       </TornCard>
-      <TornCard showDecorations={false}>
+      <TornCard showDecorations={false} frame="suave">
         <h3>Instrucciones</h3>
         <ol>
           <li>Lee atentamente las preguntas</li>
@@ -20,7 +20,7 @@ export default function TriviaInstructions({ onStart }) {
           <li>el primero en responder se lleva 2pt por pregunta</li>
         </ol>
         <p>Tiempo de cada pregunta: 15s</p>
-        <PillButton label="¡Inicia!" onClick={onStart} />
+        <PillButton className="trivia-instructions__start" label="¡Inicia!" onClick={onStart} />
       </TornCard>
     </div>
   )

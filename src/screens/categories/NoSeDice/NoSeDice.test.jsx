@@ -18,7 +18,8 @@ describe('NoSeDiceCategory', () => {
     expect(screen.getByText('¡Se acabó el Tiempo!')).toBeInTheDocument()
     fireEvent.click(screen.getByText('Continuar'))
 
-    expect(screen.getByText(/^Se dice\.\.\. ¡/)).toBeInTheDocument()
+    expect(screen.getByText('Se dice…')).toBeInTheDocument()
+    expect(screen.getByText(/^¡/)).toBeInTheDocument()
     expect(screen.getByText('Ñiee, la sabias?')).toBeInTheDocument()
     fireEvent.click(screen.getByText('siguiente'))
 
@@ -30,6 +31,6 @@ describe('NoSeDiceCategory', () => {
     render(<NoSeDiceCategory onRoundComplete={() => {}} />)
     fireEvent.click(screen.getByText('¡Inicia!'))
     fireEvent.click(screen.getByText('Ya adivinó'))
-    expect(screen.getByText(/^Se dice\.\.\. ¡/)).toBeInTheDocument()
+    expect(screen.getByText('Se dice…')).toBeInTheDocument()
   })
 })

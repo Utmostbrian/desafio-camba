@@ -3,6 +3,7 @@ import TornCard from '../../../components/TornCard'
 import ProgressTimerBar from '../../../components/ProgressTimerBar'
 import TimeUpOverlay from '../../../components/TimeUpOverlay'
 import PillButton from '../../../components/PillButton'
+import RevealBanner from '../../../components/RevealBanner'
 import { useCountdown } from '../../../hooks/useCountdown'
 import { pickRandom } from '../../../lib/random'
 import palabras from '../../../data/noSeDice.json'
@@ -26,11 +27,13 @@ export default function NoSeDiceGame({ onFinished }) {
   if (revealed) {
     return (
       <div className="category-game">
-        <TornCard>
-          <p className="category-game__prompt">Se dice... ¡{capitalize(entry.respuesta)}!</p>
-          <p className="no-se-dice__reveal-hint">Ñiee, la sabias?</p>
-          <PillButton label="siguiente" onClick={onFinished} />
-        </TornCard>
+        <RevealBanner
+          line1="Se dice…"
+          line2={`¡${capitalize(entry.respuesta)}!`}
+          hint="Ñiee, la sabias?"
+          continueLabel="siguiente"
+          onContinue={onFinished}
+        />
       </div>
     )
   }
@@ -40,7 +43,7 @@ export default function NoSeDiceGame({ onFinished }) {
       <TornCard>
         <p className="category-game__prompt">{entry.frase}</p>
         <ProgressTimerBar totalSeconds={ROUND_SECONDS} secondsLeft={secondsLeft} />
-        {!timeUp && <PillButton label="Ya adivinó" onClick={() => setRevealed(true)} variant="ghost" />}
+        {!timeUp && <PillButton label="Ya adivinó" onClick={() => setRevealed(true)} />}
       </TornCard>
       <TimeUpOverlay visible={timeUp} onContinue={() => setRevealed(true)} />
     </div>

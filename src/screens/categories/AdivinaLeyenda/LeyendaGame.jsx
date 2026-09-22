@@ -30,7 +30,7 @@ export default function LeyendaGame({ onFinished }) {
         <h3>{leyenda.nombre}</h3>
         {imageSrc && <img className="leyenda-game__image" src={imageSrc} alt={leyenda.nombre} />}
         <ProgressTimerBar totalSeconds={ROUND_SECONDS} secondsLeft={secondsLeft} />
-        {!timeUp && <PillButton label="Ya adivinó" onClick={onFinished} variant="ghost" />}
+        {!timeUp && <PillButton label="Ya adivinó" onClick={onFinished} />}
       </TornCard>
       <TimeUpOverlay visible={timeUp} onContinue={onFinished} />
     </div>

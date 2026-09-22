@@ -9,7 +9,7 @@ beforeEach(() => {
 afterEach(() => vi.useRealTimers())
 
 describe('CancionCategory', () => {
-  it('goes intro (playing audio) -> answer -> time up -> round end', () => {
+  it('goes intro (playing audio) -> answer -> time up -> reveal (plays full song) -> round end', () => {
     const onRoundComplete = vi.fn()
     render(<CancionCategory onRoundComplete={onRoundComplete} />)
 
@@ -24,6 +24,11 @@ describe('CancionCategory', () => {
     expect(screen.getByText('¿Apoco y te la sabes?')).toBeInTheDocument()
     act(() => vi.advanceTimersByTime(5000))
     expect(screen.getByText('¡Se acabó el Tiempo!')).toBeInTheDocument()
+    fireEvent.click(screen.getByText('Continuar'))
+
+    // The reveal screen shows the song title and plays the full track.
+    expect(screen.getByText('Temón!')).toBeInTheDocument()
+    expect(screen.getByTestId('cancion-final-audio')).toBeInTheDocument()
 
     fireEvent.click(screen.getByText('Continuar'))
     fireEvent.click(screen.getByText('Ir a la ruleta'))

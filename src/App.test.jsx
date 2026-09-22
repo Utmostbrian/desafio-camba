@@ -31,8 +31,9 @@ describe('App', () => {
     fireEvent.click(screen.getByRole('button', { name: /tocar la pantalla/i }))
 
     expect(screen.getByText('Iniciar')).toBeInTheDocument()
-    fireEvent.click(screen.getByText('Iniciar'))
+    fireEvent.click(screen.getByLabelText('Girar la ruleta'))
     act(() => vi.advanceTimersByTime(4000))
+    fireEvent.click(screen.getByText('Iniciar'))
 
     expect(screen.queryByText(/pendiente de implementar/)).not.toBeInTheDocument()
   })
@@ -51,8 +52,9 @@ describe('App - all categories reachable from the wheel', () => {
 
     render(<App />)
     fireEvent.click(screen.getByRole('button', { name: /tocar la pantalla/i }))
-    fireEvent.click(screen.getByText('Iniciar'))
+    fireEvent.click(screen.getByLabelText('Girar la ruleta'))
     act(() => vi.advanceTimersByTime(4000))
+    fireEvent.click(screen.getByText('Iniciar'))
 
     // Each category's first screen renders its own, category-specific content
     // (not just "anything other than the stub text", which a blank screen

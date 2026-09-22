@@ -4,7 +4,7 @@ import PillButton from '../../../components/PillButton'
 export default function LeyendaInstructions({ onStart }) {
   return (
     <div className="category-intro">
-      <TornCard showDecorations={false}>
+      <TornCard showDecorations={false} frame="suave">
         <h3>Explicación</h3>
         <p>
           En este juego no hay que ser opa, Ok? Uno de los dos jugadores debe darse la vuelta y
@@ -13,7 +13,7 @@ export default function LeyendaInstructions({ onStart }) {
           Cualquiera de los dos puede ganar, todo depende de que el otro jugador adivine o no.
         </p>
       </TornCard>
-      <TornCard showDecorations={false}>
+      <TornCard showDecorations={false} frame="suave">
         <h3>Instrucciones</h3>
         <ol>
           <li>Jueguen piedra papel o tijera para saber quien adivina y quien hace la mímica</li>

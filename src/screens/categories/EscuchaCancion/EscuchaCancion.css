@@ -38,11 +38,3 @@
   cursor: not-allowed;
   text-decoration: none;
 }
-.cancion-answer__reveal {
-  position: absolute;
-  bottom: 60px;
-  width: 100%;
-  text-align: center;
-  font-weight: 700;
-  z-index: 11;
-}

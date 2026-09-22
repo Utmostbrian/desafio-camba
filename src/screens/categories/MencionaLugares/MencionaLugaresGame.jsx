@@ -23,7 +23,7 @@ export default function MencionaLugaresGame({ onFinished }) {
         <p className="menciona-lugares__letra">{letra}</p>
         <p className="menciona-lugares__hint">Ahorita sacan la labia puej</p>
         <ProgressTimerBar totalSeconds={ROUND_SECONDS} secondsLeft={secondsLeft} />
-        {!timeUp && <PillButton label="Ya terminé" onClick={onFinished} variant="ghost" />}
+        {!timeUp && <PillButton label="Ya terminé" onClick={onFinished} />}
       </TornCard>
       <TimeUpOverlay visible={timeUp} onContinue={onFinished} />
     </div>

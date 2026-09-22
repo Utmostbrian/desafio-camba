@@ -1,5 +1,6 @@
 .pill-button {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
+  font-style: italic;
   font-weight: 700;
   font-size: 22px;
   border: none;
@@ -7,14 +8,20 @@
   padding: 16px 40px;
   cursor: pointer;
   transition: transform 0.15s ease;
+  box-shadow: 0 8px 14px rgba(0, 0, 0, 0.3);
 }
 .pill-button--primary {
-  background: linear-gradient(180deg, var(--color-accent), var(--color-accent-dark));
-  color: var(--color-text-dark);
+  /* Sampled from the real button asset: light green (left) to dark
+     green (right), always white italic text — not the previous
+     top-to-bottom gradient with dark text. */
+  background: linear-gradient(90deg, #6ab242, #05421e);
+  color: var(--color-text-light);
 }
 .pill-button--ghost {
   background: var(--color-card-bg);
   color: var(--color-accent-dark);
+  font-style: normal;
+  box-shadow: none;
 }
 .pill-button:disabled { opacity: 0.5; cursor: not-allowed; }
 .pill-button:not(:disabled):active { transform: scale(0.96); }

@@ -6,7 +6,8 @@
   --color-card-bg: #f4fdf4;
   --color-text-dark: #10321a;
   --color-text-light: #ffffff;
-  --font-display: 'Baloo 2', 'Poppins', sans-serif;
+  --font-display: 'Science Gothic Condensed', 'Science Gothic', sans-serif;
+  --font-body: 'Sofia Sans', sans-serif;
   --radius-lg: 28px;
   --radius-pill: 999px;
   --shadow-card: 0 12px 24px rgba(0, 0, 0, 0.35);

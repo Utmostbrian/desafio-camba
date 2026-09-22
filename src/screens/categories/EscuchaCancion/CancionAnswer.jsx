@@ -7,7 +7,7 @@ import { useCountdown } from '../../../hooks/useCountdown'
 
 const ANSWER_SECONDS = 5
 
-export default function CancionAnswer({ cancion, onFinished }) {
+export default function CancionAnswer({ onFinished }) {
   const [timeUp, setTimeUp] = useState(false)
   const { secondsLeft, start } = useCountdown(ANSWER_SECONDS, { onExpire: () => setTimeUp(true) })
 
@@ -20,16 +20,7 @@ export default function CancionAnswer({ cancion, onFinished }) {
         <ProgressTimerBar totalSeconds={ANSWER_SECONDS} secondsLeft={secondsLeft} />
         {!timeUp && <PillButton label="¡Si la sé!" onClick={onFinished} />}
       </TornCard>
-      <TimeUpOverlay
-        visible={timeUp}
-        onContinue={onFinished}
-        continueLabel="Continuar"
-      />
-      {timeUp && (
-        <p className="cancion-answer__reveal" role="status">
-          Era: {cancion.nombre} — {cancion.artista}
-        </p>
-      )}
+      <TimeUpOverlay visible={timeUp} onContinue={onFinished} continueLabel="Continuar" />
     </div>
   )
 }
