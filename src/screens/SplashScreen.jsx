@@ -17,6 +17,21 @@ export default function SplashScreen({ onContinue }) {
       <img className="splash-screen__logo" src={logo} alt="Desafío Camba!" />
       <img className="splash-screen__art" src={portada} alt="" aria-hidden="true" />
       <p className="splash-screen__hint">Tocar la pantalla para pasar a la siguiente</p>
+      <div className="splash-screen__credits">
+        <div className="splash-screen__credit">
+          <p className="splash-screen__credit-role">Ilustraciones:</p>
+          <p className="splash-screen__credit-name">Maria Valeria Coronado</p>
+          <p className="splash-screen__credit-name">Yuliet Salvatierra</p>
+        </div>
+        <div className="splash-screen__credit">
+          <p className="splash-screen__credit-role">Diseño:</p>
+          <p className="splash-screen__credit-name">Eleanor Saucedo</p>
+        </div>
+        <div className="splash-screen__credit">
+          <p className="splash-screen__credit-role">Programación:</p>
+          <p className="splash-screen__credit-name">Brian Serrudo</p>
+        </div>
+      </div>
     </div>
   )
 }

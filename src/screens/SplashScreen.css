@@ -39,3 +39,24 @@
   opacity: 0.85;
   z-index: 2;
 }
+
+.splash-screen__credits {
+  position: absolute;
+  bottom: 13%;
+  left: 4%;
+  display: flex;
+  gap: 28px;
+  z-index: 2;
+}
+.splash-screen__credit-role {
+  margin: 0 0 4px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 15px;
+}
+.splash-screen__credit-name {
+  margin: 0;
+  font-style: italic;
+  font-size: 13px;
+  opacity: 0.9;
+}

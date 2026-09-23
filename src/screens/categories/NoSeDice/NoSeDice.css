@@ -1,3 +1,12 @@
 /* .category-intro / .category-game / .category-game__prompt now live in
    src/styles/global.css since all 5 category folders use them, not just
    No se dice. */
+.no-se-dice__prompt {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 800;
+  font-size: 48px;
+  line-height: 1.15;
+  color: var(--color-accent-dark);
+  margin-bottom: 0;
+}
