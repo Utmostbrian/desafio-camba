@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import TornCard from '../../../components/TornCard'
 import ProgressTimerBar from '../../../components/ProgressTimerBar'
 import TimeUpOverlay from '../../../components/TimeUpOverlay'
@@ -6,6 +6,7 @@ import PillButton from '../../../components/PillButton'
 import RevealBanner from '../../../components/RevealBanner'
 import { useCountdown } from '../../../hooks/useCountdown'
 import { pickRandom } from '../../../lib/random'
+import { pauseBackgroundMusic, playBackgroundMusic } from '../../../lib/backgroundMusic'
 import palabras from '../../../data/noSeDice.json'
 
 const ROUND_SECONDS = 10
@@ -19,8 +20,26 @@ export default function NoSeDiceGame({ onFinished }) {
   const [timeUp, setTimeUp] = useState(false)
   const [revealed, setRevealed] = useState(false)
   const { secondsLeft, start } = useCountdown(ROUND_SECONDS, { onExpire: () => setTimeUp(true) })
+  const countdownRef = useRef(null)
 
   useEffect(() => { start() }, [start])
+
+  // The suspense track plays only while the frase/timer screen is up. This
+  // component never unmounts when `revealed` flips true (same instance,
+  // just an early return below), so the effect must key off `revealed`
+  // itself rather than mount/unmount to know when to stop.
+  useEffect(() => {
+    if (revealed) return
+    const audio = countdownRef.current
+    pauseBackgroundMusic()
+    audio.currentTime = 0
+    audio.play().catch(() => {})
+
+    return () => {
+      audio.pause()
+      playBackgroundMusic()
+    }
+  }, [revealed])
 
   // Both paths (guessed it in time, or time ran out) converge on the same
   // reveal screen showing the real cruceño phrase before moving on.
@@ -48,6 +67,7 @@ export default function NoSeDiceGame({ onFinished }) {
         {!timeUp && <PillButton label="Ya adivinó" onClick={() => setRevealed(true)} />}
       </div>
       <TimeUpOverlay visible={timeUp} onContinue={() => setRevealed(true)} />
+      <audio ref={countdownRef} src="/audio/trivia-countdown.mp3" loop data-testid="trivia-countdown-audio" />
     </div>
   )
 }
