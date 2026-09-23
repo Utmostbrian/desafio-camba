@@ -55,7 +55,7 @@ export default function CancionIntro({ cancion, onDone }) {
 
   return (
     <div className="category-intro">
-      <div className="card-with-actions">
+      <div className="card-with-actions cancion-intro__stack">
         <TornCard>
           <h3>¿Estás escuchando?</h3>
           <div className="cancion-intro__bars" aria-hidden="true">

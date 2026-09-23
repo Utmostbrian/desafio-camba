@@ -1,3 +1,6 @@
+.cancion-intro__stack {
+  margin-top: 111px;
+}
 .cancion-intro__bars {
   display: flex;
   justify-content: center;
