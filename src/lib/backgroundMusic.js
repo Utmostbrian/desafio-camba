@@ -27,6 +27,16 @@ let muted = false
 let pausedForForeground = false
 let started = false
 
+// Exposed so one-shot sound effects (e.g. the whip-crack) can share this
+// same already-unlocked AudioContext instead of using a plain <audio>
+// element — a timer-triggered `audio.play()` gets blocked by the
+// browser's autoplay policy (it isn't a user gesture), but scheduling a
+// buffer on a context that's already running from the splash tap plays
+// immediately regardless of what triggered it.
+export function getSharedAudioContext() {
+  return ensureContext()
+}
+
 function getAudioContextClass() {
   return typeof window !== 'undefined'
     ? window.AudioContext || window.webkitAudioContext

@@ -44,48 +44,50 @@ export default function TriviaQuestion({ question, questionIndex, total, onAnswe
   if (showTimeUpReveal) {
     return (
       <div className="category-game">
-        <TornCard>
-          <p className="category-game__prompt">{question.pregunta}</p>
-          <div className="trivia-question__correct-pill">
-            <span className="trivia-question__letter">{OPTION_LETTERS[question.correctaIndex]}</span>
-            {question.opciones[question.correctaIndex]}
-          </div>
-          <p className="trivia-question__facilingo">Facilingo verdad?</p>
+        <div className="card-with-actions">
+          <TornCard>
+            <p className="category-game__prompt">{question.pregunta}</p>
+            <div className="trivia-question__correct-pill">
+              <span className="trivia-question__letter">{OPTION_LETTERS[question.correctaIndex]}</span>
+              {question.opciones[question.correctaIndex]}
+            </div>
+            <p className="trivia-question__facilingo">Facilingo verdad?</p>
+          </TornCard>
           <PillButton label="Continuar" onClick={() => onAnswered()} />
-        </TornCard>
+        </div>
       </div>
     )
   }
 
   return (
     <div className="category-game">
-      <TornCard>
-        <p className="trivia-question__meta">Pregunta {questionIndex + 1} de {total}</p>
-        <p className="category-game__prompt">{question.pregunta}</p>
-        <div className={`trivia-question__options ${hasLongOptions ? 'trivia-question__options--long' : ''}`}>
-          {question.opciones.map((opt, i) => (
-            <button
-              key={opt}
-              className={`trivia-question__option ${optionStateClass(i)}`}
-              onClick={() => handleSelect(i)}
-              disabled={answered || timeUp}
-            >
-              <span className="trivia-question__letter">{OPTION_LETTERS[i]}</span>
-              {opt}
-              {answered && i === question.correctaIndex && (
-                <span className="trivia-question__check" aria-hidden="true">✓</span>
-              )}
-            </button>
-          ))}
-        </div>
+      <div className="card-with-actions">
+        <TornCard className="trivia-question__card">
+          <p className="trivia-question__meta">Pregunta {questionIndex + 1} de {total}</p>
+          <p className="category-game__prompt">{question.pregunta}</p>
+          <div className={`trivia-question__options ${hasLongOptions ? 'trivia-question__options--long' : ''}`}>
+            {question.opciones.map((opt, i) => (
+              <button
+                key={opt}
+                className={`trivia-question__option ${optionStateClass(i)}`}
+                onClick={() => handleSelect(i)}
+                disabled={answered || timeUp}
+              >
+                <span className="trivia-question__letter">{OPTION_LETTERS[i]}</span>
+                {opt}
+                {answered && i === question.correctaIndex && (
+                  <span className="trivia-question__check" aria-hidden="true">✓</span>
+                )}
+              </button>
+            ))}
+          </div>
+        </TornCard>
         <ProgressTimerBar totalSeconds={QUESTION_SECONDS} secondsLeft={secondsLeft} />
         {answered && !timeUp && (
-          <div className="trivia-question__reveal" role="status">
-            <p>Respuesta correcta: {question.opciones[question.correctaIndex]}</p>
-            <PillButton label="Siguiente" onClick={() => onAnswered()} />
-          </div>
+          <p className="trivia-question__reveal" role="status">Respuesta correcta: {question.opciones[question.correctaIndex]}</p>
         )}
-      </TornCard>
+        {answered && !timeUp && <PillButton label="Siguiente" onClick={() => onAnswered()} />}
+      </div>
       <TimeUpOverlay
         visible={timeUp}
         onContinue={() => setShowTimeUpReveal(true)}

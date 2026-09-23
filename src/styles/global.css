@@ -80,8 +80,9 @@ h1, h2, h3, h4 {
   padding: 0 64px;
 }
 .category-game__prompt {
-  font-size: 32px;
+  font-size: 40px;
   font-weight: 700;
+  text-align: center;
   margin-bottom: 24px;
 }
 
@@ -90,17 +91,72 @@ h1, h2, h3, h4 {
    "¡Juguemos / Enchoque!" / "¡Mioj! / Facilingo" pattern across the
    whole app. */
 .category-title {
-  margin: 0 0 8px;
+  margin: 0 0 10px;
   font-weight: 500;
-  font-size: 28px;
+  font-size: 36px;
   line-height: 1.15;
 }
 .category-title__highlight {
   display: block;
   font-weight: 800;
-  font-size: 40px;
+  font-size: 52px;
 }
 .category-title__subtitle {
   font-style: italic;
-  margin-bottom: 20px;
+  font-size: 20px;
+  margin-bottom: 24px;
+}
+
+/* Every screen with a single card: the card is only ever the message —
+   the button(s) below it are siblings, never children, of the card. This
+   wrapper is the flex column that keeps that pair centered as a unit
+   inside .category-intro/.category-game's own centering. */
+.card-with-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+/* Shared "Explicación + Instrucciones" layout for every category's
+   instructions screen: two FIXED-SIZE cards positioned near the top,
+   left-aligned text, with the accept button and the time readout living
+   BELOW each card (not inside it) — pixel values measured directly off
+   the reference design on the 1440x1024 stage, not auto-sized to
+   content, so short copy leaves the same blank space the reference has. */
+.explicacion-columns {
+  align-items: flex-start;
+  justify-content: center;
+  padding: 212px 100px 0;
+  gap: 40px;
+}
+.explicacion-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  width: 600px;
+  flex: 0 0 auto;
+}
+.explicacion-column .torn-card-wrap {
+  width: 100%;
+}
+.explicacion-column .torn-card {
+  width: 100%;
+  height: 390px;
+  box-sizing: border-box;
+  text-align: left;
+}
+.explicacion-column__time-label {
+  margin: 0;
+  font-style: italic;
+  font-size: 20px;
+}
+.explicacion-column__time-value {
+  margin: -30px 0 0;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 800;
+  font-size: 48px;
+  letter-spacing: -2px;
 }

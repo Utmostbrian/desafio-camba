@@ -18,13 +18,15 @@ export default function MencionaLugaresGame({ onFinished }) {
 
   return (
     <div className="category-game">
-      <TornCard showDecorations={false}>
-        <p className="category-game__prompt">Menciona 3 lugares con la letra:</p>
-        <p className="menciona-lugares__letra">{letra}</p>
-        <p className="menciona-lugares__hint">Ahorita sacan la labia puej</p>
-        <ProgressTimerBar totalSeconds={ROUND_SECONDS} secondsLeft={secondsLeft} />
+      <div className="card-with-actions">
+        <TornCard showDecorations={false}>
+          <p className="category-game__prompt">Menciona 3 lugares con la letra:</p>
+          <p className="menciona-lugares__letra">{letra}</p>
+          <p className="menciona-lugares__hint">Ahorita sacan la labia puej</p>
+          <ProgressTimerBar totalSeconds={ROUND_SECONDS} secondsLeft={secondsLeft} />
+        </TornCard>
         {!timeUp && <PillButton label="Ya terminé" onClick={onFinished} />}
-      </TornCard>
+      </div>
       <TimeUpOverlay visible={timeUp} onContinue={onFinished} />
     </div>
   )

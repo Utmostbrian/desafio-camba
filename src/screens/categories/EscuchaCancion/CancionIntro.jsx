@@ -55,12 +55,15 @@ export default function CancionIntro({ cancion, onDone }) {
 
   return (
     <div className="category-intro">
-      <TornCard>
-        <h3>¿Estás escuchando?</h3>
-        <div className="cancion-intro__bars" aria-hidden="true">
-          <span /><span /><span />
-        </div>
-        <p>No te distraigas camba e miércole! Ni cagando repetimos</p>
+      <div className="card-with-actions">
+        <TornCard>
+          <h3>¿Estás escuchando?</h3>
+          <div className="cancion-intro__bars" aria-hidden="true">
+            <span /><span /><span />
+          </div>
+          <p>No te distraigas camba e miércole! Ni cagando repetimos</p>
+          <audio ref={audioRef} src={`/audio/${cancion.archivo}`} data-testid="cancion-audio" />
+        </TornCard>
         <button
           type="button"
           className="cancion-intro__repeat"
@@ -69,9 +72,8 @@ export default function CancionIntro({ cancion, onDone }) {
         >
           Repetir 3s
         </button>
-        <audio ref={audioRef} src={`/audio/${cancion.archivo}`} data-testid="cancion-audio" />
         <PillButton label="Continuar" onClick={onDone} disabled={playing} />
-      </TornCard>
+      </div>
     </div>
   )
 }

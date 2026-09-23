@@ -2,10 +2,10 @@
   font-family: var(--font-body);
   font-style: italic;
   font-weight: 700;
-  font-size: 22px;
+  font-size: 26px;
   border: none;
   border-radius: var(--radius-pill);
-  padding: 16px 40px;
+  padding: 20px 50px;
   cursor: pointer;
   transition: transform 0.15s ease;
   box-shadow: 0 8px 14px rgba(0, 0, 0, 0.3);

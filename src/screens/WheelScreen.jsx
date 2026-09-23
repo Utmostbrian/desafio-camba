@@ -6,11 +6,14 @@ import fondoRuleta from '../assets/fondo-ruleta.png'
 import personajeEsqueleto from '../assets/wheel-personaje-esqueleto.png'
 import personajeSombrero from '../assets/wheel-personaje-sombrero.png'
 import ruletaBase from '../assets/ruleta/ruleta-base.png'
+import { playSfx, stopSfx } from '../lib/sfx'
 import './WheelScreen.css'
 
 const SPIN_DURATION_MS = 4000
 const EXTRA_SPINS = 4 // full rotations before landing, purely visual
 const REEL_INTERVAL_MS = 90 // how fast the "Selección" name cycles while spinning
+const SPIN_SOUND_URL = '/audio/ruleta-girando.mp3'
+const SPIN_SOUND_FADE_OUT_SECONDS = 0.3
 
 export default function WheelScreen({ onCategorySelected }) {
   const [rotation, setRotation] = useState(0)
@@ -19,8 +22,14 @@ export default function WheelScreen({ onCategorySelected }) {
   const [hasSelection, setHasSelection] = useState(false)
   const selectedRef = useRef(null)
   const reelIntervalRef = useRef(null)
+  const spinSoundRef = useRef(null)
 
-  useEffect(() => () => clearInterval(reelIntervalRef.current), [])
+  useEffect(() => {
+    return () => {
+      clearInterval(reelIntervalRef.current)
+      stopSfx(spinSoundRef.current)
+    }
+  }, [])
 
   function handleSpin() {
     if (spinning) return
@@ -33,6 +42,13 @@ export default function WheelScreen({ onCategorySelected }) {
     setSelectedName(null)
     setHasSelection(false)
 
+    // The sound clip (~9.6s) runs longer than the spin animation (4s), so
+    // it's cut short with a quick fade-out once the wheel lands, instead
+    // of looping or playing past the visual stop.
+    playSfx(SPIN_SOUND_URL, { fadeOutSeconds: SPIN_SOUND_FADE_OUT_SECONDS }).then((handle) => {
+      spinSoundRef.current = handle
+    })
+
     // Slot-machine effect: cycle rapidly through the possible categories
     // while the wheel spins, then land on the one it actually picked.
     reelIntervalRef.current = setInterval(() => {
@@ -44,6 +60,8 @@ export default function WheelScreen({ onCategorySelected }) {
       setSpinning(false)
       setSelectedName(category.nombre)
       setHasSelection(true)
+      stopSfx(spinSoundRef.current)
+      spinSoundRef.current = null
     }, SPIN_DURATION_MS)
   }
 

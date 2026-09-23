@@ -26,12 +26,14 @@ export default function LeyendaGame({ onFinished }) {
 
   return (
     <div className="category-game">
-      <TornCard>
-        <h3>{leyenda.nombre}</h3>
-        {imageSrc && <img className="leyenda-game__image" src={imageSrc} alt={leyenda.nombre} />}
-        <ProgressTimerBar totalSeconds={ROUND_SECONDS} secondsLeft={secondsLeft} />
+      <div className="card-with-actions">
+        <TornCard>
+          <h3>{leyenda.nombre}</h3>
+          {imageSrc && <img className="leyenda-game__image" src={imageSrc} alt={leyenda.nombre} />}
+          <ProgressTimerBar totalSeconds={ROUND_SECONDS} secondsLeft={secondsLeft} />
+        </TornCard>
         {!timeUp && <PillButton label="Ya adivinó" onClick={onFinished} />}
-      </TornCard>
+      </div>
       <TimeUpOverlay visible={timeUp} onContinue={onFinished} />
     </div>
   )

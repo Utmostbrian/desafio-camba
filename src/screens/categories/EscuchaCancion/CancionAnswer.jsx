@@ -15,11 +15,13 @@ export default function CancionAnswer({ onFinished }) {
 
   return (
     <div className="category-game">
-      <TornCard>
-        <h3>¿Apoco y te la sabes?</h3>
-        <ProgressTimerBar totalSeconds={ANSWER_SECONDS} secondsLeft={secondsLeft} />
+      <div className="card-with-actions">
+        <TornCard>
+          <h3>¿Apoco y te la sabes?</h3>
+          <ProgressTimerBar totalSeconds={ANSWER_SECONDS} secondsLeft={secondsLeft} />
+        </TornCard>
         {!timeUp && <PillButton label="¡Si la sé!" onClick={onFinished} />}
-      </TornCard>
+      </div>
       <TimeUpOverlay visible={timeUp} onContinue={onFinished} continueLabel="Continuar" />
     </div>
   )

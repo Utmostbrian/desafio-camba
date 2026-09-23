@@ -23,15 +23,17 @@ export default function RoundEndScreen({
 
   return (
     <div className="round-end-screen">
-      <TornCard>
-        <h2 className="round-end-screen__title">
-          {title}
-          <br />
-          <span className="round-end-screen__title-bold">{titleBold}</span>
-        </h2>
-        <p className="round-end-screen__subtitle">{subtitle}</p>
+      <div className="card-with-actions">
+        <TornCard>
+          <h2 className="round-end-screen__title">
+            {title}
+            <br />
+            <span className="round-end-screen__title-bold">{titleBold}</span>
+          </h2>
+          <p className="round-end-screen__subtitle">{subtitle}</p>
+        </TornCard>
         <PillButton label="Ir a la ruleta" onClick={onBackToWheel} />
-      </TornCard>
+      </div>
     </div>
   )
 }

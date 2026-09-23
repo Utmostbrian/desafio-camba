@@ -1,4 +1,5 @@
 .leyenda-game__image {
-  max-width: 320px;
-  margin: 16px 0;
+  display: block;
+  max-width: 260px;
+  margin: 16px auto;
 }

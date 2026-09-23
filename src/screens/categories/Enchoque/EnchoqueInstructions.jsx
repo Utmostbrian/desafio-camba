@@ -10,20 +10,24 @@ function formatTime(totalSeconds) {
 
 export default function EnchoqueInstructions({ onStart }) {
   return (
-    <div className="category-intro">
-      <TornCard showDecorations={false} frame="suave">
-        <h3>Explicación</h3>
-        <p>{config.explicacion}</p>
-      </TornCard>
-      <TornCard showDecorations={false} frame="suave">
-        <h3>Instrucciones</h3>
-        <ol>
-          {config.pasos.map((paso) => <li key={paso}>{paso}</li>)}
-        </ol>
+    <div className="category-intro explicacion-columns">
+      <div className="explicacion-column">
+        <TornCard showDecorations={false} frame="suave">
+          <h3>Explicación</h3>
+          <p>{config.explicacion}</p>
+        </TornCard>
         <PillButton label="¡Inicia!" onClick={onStart} />
-        <p className="enchoque-instructions__tiempo-label">Tiempo:</p>
-        <p className="enchoque-instructions__tiempo-value">{formatTime(config.duracionSegundos)}</p>
-      </TornCard>
+      </div>
+      <div className="explicacion-column">
+        <TornCard showDecorations={false} frame="suave">
+          <h3>Instrucciones</h3>
+          <ol>
+            {config.pasos.map((paso) => <li key={paso}>{paso}</li>)}
+          </ol>
+        </TornCard>
+        <p className="explicacion-column__time-label">Tiempo:</p>
+        <p className="explicacion-column__time-value">{formatTime(config.duracionSegundos)}</p>
+      </div>
     </div>
   )
 }

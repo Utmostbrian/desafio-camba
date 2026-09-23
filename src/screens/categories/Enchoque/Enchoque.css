@@ -6,17 +6,11 @@
 .enchoque-timer__stack {
   display: flex;
   flex-direction: column;
-  align-items: stretch;
+  align-items: center;
   gap: 24px;
   width: 100%;
-  max-width: 1012px;
+  max-width: 1280px;
 }
-.enchoque-instructions__tiempo-label {
-  margin: 20px 0 0;
-  font-style: italic;
-}
-.enchoque-instructions__tiempo-value {
-  margin: 0;
-  font-size: 40px;
-  font-weight: 800;
+.enchoque-timer__stack .progress-timer-bar {
+  width: 100%;
 }

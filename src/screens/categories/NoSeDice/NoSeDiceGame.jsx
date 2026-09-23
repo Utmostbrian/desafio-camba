@@ -40,11 +40,13 @@ export default function NoSeDiceGame({ onFinished }) {
 
   return (
     <div className="category-game">
-      <TornCard>
-        <p className="category-game__prompt">{entry.frase}</p>
-        <ProgressTimerBar totalSeconds={ROUND_SECONDS} secondsLeft={secondsLeft} />
+      <div className="card-with-actions">
+        <TornCard showDecorations={false}>
+          <p className="category-game__prompt">{entry.frase}</p>
+          <ProgressTimerBar totalSeconds={ROUND_SECONDS} secondsLeft={secondsLeft} />
+        </TornCard>
         {!timeUp && <PillButton label="Ya adivinó" onClick={() => setRevealed(true)} />}
-      </TornCard>
+      </div>
       <TimeUpOverlay visible={timeUp} onContinue={() => setRevealed(true)} />
     </div>
   )

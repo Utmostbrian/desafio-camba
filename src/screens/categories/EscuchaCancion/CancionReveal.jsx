@@ -19,15 +19,17 @@ export default function CancionReveal({ cancion, onDone }) {
 
   return (
     <div className="category-game">
-      <TornCard>
-        <h2 className="category-title">
-          Era...
-          <span className="category-title__highlight">{cancion.nombre}!</span>
-        </h2>
-        <p className="category-title__subtitle">Temón!</p>
-        <audio ref={audioRef} src={`/audio/${cancion.archivoCompleto}`} data-testid="cancion-final-audio" />
+      <div className="card-with-actions">
+        <TornCard>
+          <h2 className="category-title">
+            Era...
+            <span className="category-title__highlight">{cancion.nombre}!</span>
+          </h2>
+          <p className="category-title__subtitle">Temón!</p>
+          <audio ref={audioRef} src={`/audio/${cancion.archivoCompleto}`} data-testid="cancion-final-audio" />
+        </TornCard>
         <PillButton label="Continuar" onClick={onDone} />
-      </TornCard>
+      </div>
     </div>
   )
 }
