@@ -23,6 +23,11 @@ export default function WheelScreen({ onCategorySelected }) {
   const selectedRef = useRef(null)
   const reelIntervalRef = useRef(null)
   const spinSoundRef = useRef(null)
+  // Counts spin invocations so a stray interval/timeout from an overlapping
+  // handleSpin() call (e.g. a double-click that slips past the `spinning`
+  // guard before React disables the button) can tell it's stale and no-op
+  // instead of overwriting a newer spin's result.
+  const spinIdRef = useRef(0)
 
   useEffect(() => {
     return () => {
@@ -33,6 +38,8 @@ export default function WheelScreen({ onCategorySelected }) {
 
   function handleSpin() {
     if (spinning) return
+    spinIdRef.current += 1
+    const thisSpinId = spinIdRef.current
     const category = pickRandom(categorias)
     selectedRef.current = category
     const targetAngle = angleForCategory(categorias, category.id)
@@ -46,17 +53,24 @@ export default function WheelScreen({ onCategorySelected }) {
     // it's cut short with a quick fade-out once the wheel lands, instead
     // of looping or playing past the visual stop.
     playSfx(SPIN_SOUND_URL, { fadeOutSeconds: SPIN_SOUND_FADE_OUT_SECONDS }).then((handle) => {
+      if (spinIdRef.current !== thisSpinId) return
       spinSoundRef.current = handle
     })
 
     // Slot-machine effect: cycle rapidly through the possible categories
     // while the wheel spins, then land on the one it actually picked.
-    reelIntervalRef.current = setInterval(() => {
+    const thisReelInterval = setInterval(() => {
+      if (spinIdRef.current !== thisSpinId) {
+        clearInterval(thisReelInterval)
+        return
+      }
       setSelectedName(pickRandom(categorias).nombre)
     }, REEL_INTERVAL_MS)
+    reelIntervalRef.current = thisReelInterval
 
     setTimeout(() => {
-      clearInterval(reelIntervalRef.current)
+      clearInterval(thisReelInterval)
+      if (spinIdRef.current !== thisSpinId) return
       setSpinning(false)
       setSelectedName(category.nombre)
       setHasSelection(true)
